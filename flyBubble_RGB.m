@@ -661,7 +661,7 @@ if button_state == get(hObject,'Max')
         'Name', 'Metadata Input GUI', ...
         'NumberTitle', 'off', ...
         'Toolbar', 'none', ...
-        'Position', [1280 270 600 870],...
+        'Position', [1680 700 800 670],...
         'Units', 'pixels'...
         );
     
@@ -916,18 +916,17 @@ for i = 1:1
 end
 
 %open all dividers after abort of end of experiments
+set(handles.divider1,'Value',1);
+set(handles.divider1,'String', 'Opened');
+set(handles.divider2,'Value',1);
+set(handles.divider2,'String', 'Opened');
+set(handles.divider3,'Value',1);
+set(handles.divider3,'String', 'Opened');
+set(handles.divider4,'Value',1);
+set(handles.divider4,'String', 'Opened');
 handles.dividerPattern = '1111';
 handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
 handles.hComm.LEDCtrl.turnOnDivider();
-%reset all dividers to open state in the GUI
-set(handles.divider1,'Value',1);
-divider1_Callback(handles.divider1, 0, handles);
-set(handles.divider2,'Value',1);
-divider2_Callback(handles.divider2, 0, handles);
-set(handles.divider3,'Value',1);
-divider3_Callback(handles.divider3, 0, handles);
-set(handles.divider4,'Value',1);
-divider4_Callback(handles.divider4, 0, handles);
 
 %enable those inputs
 set(handles.IrInt, 'enable', 'on');
@@ -1335,12 +1334,12 @@ function divider1_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of divider1
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(hObject,'String', 'Close');
+    set(hObject,'String', 'Opened');
     handles.dividerPattern(1) = '1';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 else
-    set(hObject,'String', 'Open');
+    set(hObject,'String', 'Closed');
     handles.dividerPattern(1) = '0';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
@@ -1358,12 +1357,12 @@ function divider2_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of divider2
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(hObject,'String', 'Close');
+    set(hObject,'String', 'Opened');
     handles.dividerPattern(2) = '1';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 else
-    set(hObject,'String', 'Open');
+    set(hObject,'String', 'Closed');
     handles.dividerPattern(2) = '0';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
@@ -1381,12 +1380,12 @@ function divider3_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of divider3
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(hObject,'String', 'Close');
+    set(hObject,'String', 'Opened');
     handles.dividerPattern(3) = '1';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 else
-    set(hObject,'String', 'Open');
+    set(hObject,'String', 'Closed');
     handles.dividerPattern(3) = '0';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
@@ -1403,18 +1402,17 @@ function divider4_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of divider4
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(hObject,'String', 'Close');
+    set(hObject,'String', 'Opened');
     handles.dividerPattern(4) = '1';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 else
-    set(hObject,'String', 'Open');
+    set(hObject,'String', 'Closed');
     handles.dividerPattern(4) = '0';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 end
 guidata(hObject, handles);
 end
-
 
 

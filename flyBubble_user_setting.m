@@ -1,20 +1,21 @@
 %flyBubble1 upper left corner
-serial_port_for_LED_Controller = 'COM4';
+serial_port_for_LED_Controller = 'COM5';
 defaultDir = 'C:\Users\labadmin\Documents\MATLAB\flyBubbleRGB\';
 
 %%settings of the camera
 camera(1).ip = '127.0.0.1';
 camera(1).port = 5010;
 defaultJsonFile(1).name = [defaultDir,'bias_config.json'];
-windowGeometry(1).height= 479;
-windowGeometry(1).width= 588;
-windowGeometry(1).x= 660;
-windowGeometry(1).y= 134;
+windowGeometry(1).height= 1400;
+windowGeometry(1).width= 1400;
+windowGeometry(1).x= 1050;
+windowGeometry(1).y= 104;
 
 %flyBubble GUI position
 GUIPosition = [5 134 120 50];
+%GUIPosition = [50 50 1200 1000];
 %GUIPosition = [10 20 120 35];
-serial_port_for_precon_sensor = 'COM5';
+serial_port_for_precon_sensor = 'COM6';
 
 rigName = 'flyBubble1';
 

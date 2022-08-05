@@ -7,7 +7,8 @@ classdef LEDController < handle
     
     methods
         function obj = LEDController(COMPort)
-            obj.serialPort = serial(COMPort, 'BaudRate', 115200, 'Terminator', 'CR');
+            obj.serialPort = serialport(COMPort, 115200);
+            configureTerminator(obj.serialPort,"CR");
             obj.docheckstatus = true;
             obj.dispstatus = 0;
             try
@@ -329,7 +330,7 @@ classdef LEDController < handle
              
         function delete(obj)
             if  ~(obj.serialPort == 0)
-                fclose(obj.serialPort);
+                clear obj.serialPort;
             end
         end
         
