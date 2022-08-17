@@ -7,8 +7,12 @@ classdef LEDController < handle
     
     methods
         function obj = LEDController(COMPort)
+<<<<<<< HEAD
+            obj.serialPort = serialport(COMPort, 'BaudRate', 115200, 'Terminator', 'CR');
+=======
             obj.serialPort = serialport(COMPort, 115200);
             configureTerminator(obj.serialPort,"CR");
+>>>>>>> 6826ca9454a3235f59bf6310c5c7bf2c1ead68cb
             obj.docheckstatus = true;
             obj.dispstatus = 0;
             try
@@ -187,17 +191,29 @@ classdef LEDController < handle
             if  ~(obj.serialPort == 0)   
 
                 %check length of pulse set < duration for red led
-%                 if (oneStep.RedIntensity > 0) && (oneStep.Duration < (oneStep.DelayTime + (oneStep.RedPulsePeriod * oneStep.RedPulseNum + oneStep.RedOffTime) * oneStep.RedIteration/1000))
-%                     errorMsg = sprintf("Length of red led pulse set is longer than duration in step %d!", oneStep.NumStep);
-%                     f = errordlg(errorMsg,'RED LED protocol Error');
-%                     return;
-%                 end
+                if (oneStep.RedIntensity > 0) && (oneStep.Duration < (oneStep.DelayTime + (oneStep.RedPulsePeriod * oneStep.RedPulseNum + oneStep.RedOffTime) * oneStep.RedIteration/1000))
+                    errorMsg = sprintf("Length of red led pulse set is longer than duration in step %d!", oneStep.NumStep);
+                    f = errordlg(errorMsg,'RED LED protocol Error');
+                    return;
+                end
+
+                % Added this because the red indicator will be on if the
+                % puslse width > 0
+                if oneStep.RedIntensity == 0
+                    oneStep.RedPulseWidth = 0;
+                end
 
                 %check length of pulse set < duration for green led
                 if (oneStep.GrnIntensity > 0) && (oneStep.Duration < (oneStep.DelayTime + (oneStep.GrnPulsePeriod * oneStep.GrnPulseNum + oneStep.GrnOffTime) * oneStep.GrnIteration/1000))
                     errorMsg = sprintf("Length of green led pulse set is longer than duration in step %d!", oneStep.NumStep);
                     f = errordlg(errorMsg,'Green LED protocol Error');
                     return;
+                end
+
+                % Added this because the green indicator will be on if the
+                % puslse width > 0
+                if oneStep.GrnIntensity == 0
+                    oneStep.GrnPulseWidth = 0;
                 end
 
                 %check length of pulse set < duration for blue led
@@ -207,6 +223,11 @@ classdef LEDController < handle
                     return;
                 end
 
+                % Added this because the blue indicator will be on if the
+                % puslse width > 0
+                if oneStep.BluIntensity == 0
+                    oneStep.BluPulseWidth = 0;
+                end
                 
                 s = 'addOneStep ';                
                 x = [oneStep.NumStep, oneStep.RedIntensity, oneStep.RedPulseWidth,...
