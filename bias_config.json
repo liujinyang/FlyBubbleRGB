@@ -5,9 +5,9 @@
             "pixelFormat" : "MONO8",
             "roi" : {
                 "height" : 1100,
-                "offsetX" : 0,
+                "offsetX" : 240,
                 "offsetY" : 0,
-                "width" : 1100 
+                "width" : 1080 
             }
         },
         "frameRate" : "Format7",
@@ -124,7 +124,7 @@
             },
             "temperature" : {
                 "absoluteControl" : true,
-                "absoluteValue" : 51.375,
+                "absoluteValue" : 49.625,
                 "autoActive" : false,
                 "on" : false,
                 "onePush" : false,
@@ -203,7 +203,7 @@
             "includeVersionNumber" : true,
             "timeAndDateFormat" : "'date'_yyyy_MM_dd_'time'_hh_mm_ss" 
         },
-        "directory" : "D:/Data/2022-06-29/20220629T104853_rig1_flyBubble1",
+        "directory" : "D:/Data/2022-08-03/20220803T110830_rig1_flyBubble1",
         "enabled" : false,
         "fileName" : "movie",
         "format" : "ufmf",
