@@ -7,12 +7,8 @@ classdef LEDController < handle
     
     methods
         function obj = LEDController(COMPort)
-<<<<<<< HEAD
-            obj.serialPort = serialport(COMPort, 'BaudRate', 115200, 'Terminator', 'CR');
-=======
             obj.serialPort = serialport(COMPort, 115200);
             configureTerminator(obj.serialPort,"CR");
->>>>>>> 6826ca9454a3235f59bf6310c5c7bf2c1ead68cb
             obj.docheckstatus = true;
             obj.dispstatus = 0;
             try
