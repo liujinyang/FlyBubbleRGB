@@ -12,7 +12,7 @@ windowGeometry(1).x= 1050;
 windowGeometry(1).y= 104;
 
 %flyBubble GUI position
-GUIPosition = [5 134 120 50];
+GUIPosition = [5 134 120 52];
 %GUIPosition = [50 50 1200 1000];
 %GUIPosition = [10 20 120 35];
 serial_port_for_precon_sensor = 'COM6';
