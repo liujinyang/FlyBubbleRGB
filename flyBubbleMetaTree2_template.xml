@@ -48,7 +48,7 @@
                 datatype="string" default=""
                 description="Apparatus identifier, generated from rig, plate, Bubble"
                 entry="acquire"
-                last="Rig1_Plate21_Bubble1_Camera_ComputerLIUJIN-WW2_HardDriveHD1"
+                last="Rig1_Plate21_Bubble2_Camera_ComputerLIUJIN-WW2_HardDriveHD1"
                 range_advanced="" range_basic="" required="true" units=""/>
             <room appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
@@ -66,7 +66,7 @@
                 required="true" units=""/>
             <Bubble appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
-                description="Bubble identifier." entry="manual" last="1"
+                description="Bubble identifier." entry="manual" last="2"
                 range_advanced="1,2,3,4" range_basic="1,2,3,4"
                 required="true" units=""/>
             <camera appear_advanced="true, readonly"
@@ -91,7 +91,7 @@
             <line appear_advanced="false" appear_basic="false"
                 datatype="string" default="$LAST"
                 description="Verified as legal line name in SAGE. New line names may be added to SAGE using the web interface."
-                entry="acquire" last="2135002_3xDSCPLwt_attp40_3stop1"
+                entry="acquire" last="2135001_3xDSCPLwt_attp40_3stop1"
                 range_advanced="" range_basic="" required="true" units=""/>
             <effector appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
@@ -107,7 +107,7 @@
             <male_parent appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
                 description="Verified as legal male parent name in SAGE."
-                entry="manual" last="2135002"
+                entry="manual" last="2135001"
                 range_advanced="$FLYPARENT" range_basic="$FLYPARENT"
                 required="true" units=""/>
             <female_parent appear_advanced="true" appear_basic="true"
@@ -177,8 +177,8 @@
                 <seconds_fliesloaded appear_advanced="true"
                     appear_basic="true" datatype="integer" default=""
                     description="calculated as difference in seconds between load button push and movie start."
-                    entry="acquire" last="4" range_advanced=""
-                    range_basic="" required="true" units="seconds"/>
+                    entry="acquire" last="3" range_advanced=""
+                    range_basic="" required="true" units=""/>
                 <datetime_sorted appear_advanced="true"
                     appear_basic="true" datatype="datetime"
                     default="$LAST"
@@ -196,7 +196,7 @@
                     appear_basic="true" datatype="string" default=""
                     description="Delay time in seconds between starting experiments and opening the devider, inf means the divider is closed during the experiment."
                     entry="acquire" last="30" range_advanced=""
-                    range_basic="" required="true" units="seconds"/>                
+                    range_basic="" required="true" units="seconds"/>                   
             </handling>
         </flies>
     </session>
