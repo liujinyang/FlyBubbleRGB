@@ -68,6 +68,7 @@ handles.dividerPattern = '0000';
 %define the divider delay time array and delete inf elements since inf
 %means keep the divider closed during the experiment.
 handles.initialDividerEventArray = [dividerDelayT1 dividerDelayT2 dividerDelayT3 dividerDelayT4];
+handles.dividerDelayTime = [dividerDelayT1 dividerDelayT2 dividerDelayT3 dividerDelayT4];
 indexInf = find(handles.initialDividerEventArray ==inf);
 handles.initialDividerEventArrayIndex = find(handles.initialDividerEventArray~=inf);
 handles.initialDividerEventArray(indexInf) = [];
@@ -696,6 +697,7 @@ if button_state == get(hObject,'Max')
     for i = 1:4
         handles.defaultsTree(i).setValueByUniquePath({'experiment','exp_datetime'},datestr(handles.expStartTime,30));
         handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_fliesloaded'}, num2str(round(etime(datevec(handles.expStartTime),datevec(handles.loadFlyTime(i))))));
+        handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_dividerDelay'}, num2str(handles.handles.dividerDelayTime(i)));
         drawnow;
 
     end

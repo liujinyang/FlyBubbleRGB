@@ -12,7 +12,7 @@
     <exp_datetime appear_advanced="true, readonly"
         appear_basic="true, readonly" datatype="datetime" default=""
         description="Date and time at which the experiment was started."
-        entry="acquire" last="20220805T153837" range_advanced=""
+        entry="acquire" last="20220817T161527" range_advanced=""
         range_basic="" required="true" units=""/>
     <experimenter appear_advanced="true" appear_basic="true"
         datatype="string" default="$LAST"
@@ -124,7 +124,7 @@
             <cross_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was made to generate this set of flies."
-                entry="manual" last="20220715T000000"
+                entry="manual" last="20220729T000000"
                 range_advanced="[now-22,now-14], days"
                 range_basic="[now-22,now-14], days" required="true" units=""/>
             <flip_used appear_advanced="true" appear_basic="true"
@@ -178,12 +178,12 @@
                     appear_basic="true" datatype="integer" default=""
                     description="calculated as difference in seconds between load button push and movie start."
                     entry="acquire" last="4" range_advanced=""
-                    range_basic="" required="true" units=""/>
+                    range_basic="" required="true" units="seconds"/>
                 <datetime_sorted appear_advanced="true"
                     appear_basic="true" datatype="datetime"
                     default="$LAST"
                     description="Date and time at which the experiment was started."
-                    entry="manual" last="20220715T000000"
+                    entry="manual" last="20220729T000000"
                     range_advanced="[now-22,now-14], days"
                     range_basic="[now-22,now-14], days" required="true" units=""/>
                 <num_flies_dead appear_advanced="true"
@@ -192,6 +192,11 @@
                     description="Number of dead flies loaded into the Bubble."
                     entry="manual" last="12" range_advanced="[0,25]"
                     range_basic="[0,25]" required="true" units="flies"/>
+                <seconds_dividerDelay appear_advanced="true"
+                    appear_basic="true" datatype="string" default=""
+                    description="Delay time in seconds between starting experiments and opening the devider, inf means the divider is closed during the experiment."
+                    entry="acquire" last="30" range_advanced=""
+                    range_basic="" required="true" units="seconds"/>                
             </handling>
         </flies>
     </session>
@@ -204,12 +209,12 @@
         <temperature appear_advanced="true, readonly"
             appear_basic="true, readonly" datatype="integer" default=""
             description="Temperature snapshot at the time the assay was started."
-            entry="acquire" last="25" range_advanced="" range_basic=""
+            entry="acquire" last="23" range_advanced="" range_basic=""
             required="true" units="degrees Celsius"/>
         <humidity appear_advanced="true, readonly"
             appear_basic="true, readonly" datatype="integer" default=""
             description="Humidity snapshot at the time the assay was started."
-            entry="acquire" last="43" range_advanced="" range_basic=""
+            entry="acquire" last="52" range_advanced="" range_basic=""
             required="true" units="percent"/>
     </environment>
     <notes_behavioral>
