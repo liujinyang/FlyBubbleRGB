@@ -662,7 +662,7 @@ if button_state == get(hObject,'Max')
         'Name', 'Metadata Input GUI', ...
         'NumberTitle', 'off', ...
         'Toolbar', 'none', ...
-        'Position', [1680 700 800 670],...
+        'Position', [1680 500 800 900],...
         'Units', 'pixels'...
         );
     
@@ -673,11 +673,15 @@ if button_state == get(hObject,'Max')
     tab(2) = uitab(tabgp,'Title','flyBubble2');
     tab(3) = uitab(tabgp,'Title','flyBubble3');
     tab(4) = uitab(tabgp,'Title','flyBubble4');
-    
-    for i = 1:4
+
+    for i = 1:4        
+        handles.defaultsTree(i).setValueByUniquePath({'experiment','exp_datetime'},datestr(handles.expStartTime,30));
+        handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_fliesloaded'}, num2str(round(etime(datevec(handles.expStartTime),datevec(handles.loadFlyTime(i))))));
+        handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_dividerDelay'}, num2str(handles.dividerDelayTime(i)));
         % Create JIDE PropertyGrid and display defaults data in figure
         pgrid = PropertyGrid(tab(i),'Position', [0 0 1 1]);
-        pgrid.setDefaultsTree(defaultsTree(i), 'advanced');
+        pgrid.setDefaultsTree(defaultsTree(i), 'advanced');        
+        drawnow;
     end
     
     if ~isempty(handles.ledProtocol)
@@ -694,13 +698,6 @@ if button_state == get(hObject,'Max')
     handles.expTimeFile = expTimeFile;
     handles.expTimeFileID = fopen(expTimeFile, 'w+');
     
-    for i = 1:4
-        handles.defaultsTree(i).setValueByUniquePath({'experiment','exp_datetime'},datestr(handles.expStartTime,30));
-        handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_fliesloaded'}, num2str(round(etime(datevec(handles.expStartTime),datevec(handles.loadFlyTime(i))))));
-        handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_dividerDelay'}, num2str(handles.handles.dividerDelayTime(i)));
-        drawnow;
-
-    end
 
     for i = 1:4
         enclosureNum = handles.defaultsTree(i).getValueByUniquePath({'experiment','session','apparatus','rig'});

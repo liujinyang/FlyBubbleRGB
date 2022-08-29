@@ -284,7 +284,9 @@ classdef PropertyGrid < UIControl
             self.Model = model;
 
             % set JIDE table model to property table
-            self.Table.setModel(model);
+            self.Table.setModel(model); 
+            %rowHgt = self.Table.getRowHeight();
+            self.Table.setRowHeight(25);
             self.Pane.setShowToolBar(toolbar);
             if toolbar
                 self.Pane.setOrder(0);
