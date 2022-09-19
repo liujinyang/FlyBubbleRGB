@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <experiment>
-    <lab appear_advanced="true, readonly"
-           appear_basic="true, readonly" datatype="string"
-           default="Rubin Lab" description="Name of lab" entry="manual"
-           last="Rubin Lab" range_advanced="Rublin Lab" range_basic="Rubin Lab"
-           required="true" units=""/>
+    <lab appear_advanced="true, readonly" appear_basic="true, readonly"
+        datatype="string" default="Rubin" description="Name of lab"
+        entry="manual" last="Rubin" range_advanced="Rubin"
+        range_basic="Rubin" required="true" units=""/>
     <assay appear_advanced="true, readonly"
         appear_basic="true, readonly" datatype="string"
-        default="FlyBowl" description="Name of assay" entry="manual"
-        last="FlyBowl" range_advanced="FlyBowl" range_basic="FlyBowl"
-        required="true" units=""/>
+        default="FlyBubble" description="Name of assay" entry="manual"
+        last="FlyBubble" range_advanced="FlyBubble"
+        range_basic="FlyBubble" required="true" units=""/>
     <exp_datetime appear_advanced="true, readonly"
         appear_basic="true, readonly" datatype="datetime" default=""
         description="Date and time at which the experiment was started."
-        entry="acquire" last="20190514T155646" range_advanced=""
+        entry="acquire" last="20220817T161527" range_advanced=""
         range_basic="" required="true" units=""/>
     <experimenter appear_advanced="true" appear_basic="true"
         datatype="string" default="$LAST"
         description="Name of the person who is running the experiment."
-        entry="manual" last="Katie" range_advanced="$LDAP"
+        entry="manual" last="Liuj" range_advanced="$LDAP"
         range_basic="$LDAP" required="true" units=""/>
     <led_protocol appear_advanced="true, readonly"
         appear_basic="true, readonly" datatype="string" default="$LAST"
         description="Name of an XLS file that has values for experiment LED parameters"
-        entry="acquire" last="protocolVer3_test.xlsx" range_advanced=""
-        range_basic="" required="true" units=""/>
+        entry="acquire"
+        last="C:\Users\labadmin\Documents\MATLAB\FlyBubbleRGB\ledProtocols\protocolRGBTemplate.xlsx"
+        range_advanced="" range_basic="" required="true" units=""/>
     <protocol appear_advanced="true, readonly"
         appear_basic="true, readonly" datatype="string" default="$LAST"
         description="Name of an XLS file that has values for experiment parameters (see bottom of page for protocol fields). Whenever an experiment protocol variable is changed, user will need to create new rearing protocol file and give it a new name"
         entry="acquire"
-        last="protocolVer3.xlsx"
+        last="C:\Users\labadmin\Documents\MATLAB\flyBubbleRGB\ledProtocols\protocolRGBTemplate.xlsx"
         range_advanced="" range_basic="" required="true" units=""/>
     <screen_type appear_advanced="true" appear_basic="true, readonly"
         datatype="string" default="primary" description=""
@@ -46,15 +46,15 @@
         <apparatus>
             <apparatus_id appear_advanced="false" appear_basic="false"
                 datatype="string" default=""
-                description="Apparatus identifier, generated from rig, plate, bowl"
+                description="Apparatus identifier, generated from rig, plate, Bubble"
                 entry="acquire"
-                last="Rig1_Plate21_Bowl1_Camera74ccc2824379e7e210f6f8e0a3ba59c8_ComputerFLYBOWL-WW3_HardDriveHD1"
+                last="Rig1_Plate21_Bubble1_Camera_ComputerLIUJIN-WW2_HardDriveHD1"
                 range_advanced="" range_basic="" required="true" units=""/>
             <room appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
                 description="Room identifier." entry="manual"
-                last="3E.282" range_advanced="3E.282"
-                range_basic="3E.282" required="true" units=""/>
+                last="2C.310.2" range_advanced="2C.310.2"
+                range_basic="2C.310.2" required="true" units=""/>
             <rig appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
                 description="Rig identifier." entry="manual" last="1"
@@ -64,20 +64,20 @@
                 description="Lid identifier." entry="manual" last="21"
                 range_advanced="[1,40]" range_basic="[1,40]"
                 required="true" units=""/>
-            <bowl appear_advanced="true" appear_basic="true"
+            <Bubble appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
-                description="Bowl identifier." entry="manual" last="1"
+                description="Bubble identifier." entry="manual" last="1"
                 range_advanced="1,2,3,4" range_basic="1,2,3,4"
                 required="true" units=""/>
             <camera appear_advanced="true, readonly"
                 appear_basic="true, readonly" datatype="string"
                 default="$LAST" description="Camera unique identifier."
-                entry="acquire" last="74ccc2824379e7e210f6f8e0a3ba59c8"
-                range_advanced="" range_basic="" required="true" units=""/>
+                entry="acquire" last="" range_advanced="" range_basic=""
+                required="true" units=""/>
             <computer appear_advanced="true, readonly"
                 appear_basic="true, readonly" datatype="string"
                 default="" description="Computer identifier."
-                entry="acquire" last="FLYBOWL-WW3" range_advanced=""
+                entry="acquire" last="LIUJIN-WW2" range_advanced=""
                 range_basic="" required="true" units=""/>
             <harddrive appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
@@ -91,7 +91,7 @@
             <line appear_advanced="false" appear_basic="false"
                 datatype="string" default="$LAST"
                 description="Verified as legal line name in SAGE. New line names may be added to SAGE using the web interface."
-                entry="acquire" last="2135003_1xLwt_attp40_4stop1"
+                entry="acquire" last="2135002_3xDSCPLwt_attp40_3stop1"
                 range_advanced="" range_basic="" required="true" units=""/>
             <effector appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
@@ -102,18 +102,18 @@
             <gender appear_advanced="true" appear_basic="true"
                 datatype="string" default="f"
                 description="The gender or genders of the flies. m=male, f=female, b=both, x=unknown"
-                entry="manual" last="b" range_advanced="m,f,b"
+                entry="manual" last="f" range_advanced="m,f,b"
                 range_basic="m,f,b" required="true" units=""/>
             <male_parent appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
                 description="Verified as legal male parent name in SAGE."
-                entry="manual" last="2135003"
+                entry="manual" last="2135002"
                 range_advanced="$FLYPARENT" range_basic="$FLYPARENT"
                 required="true" units=""/>
             <female_parent appear_advanced="true" appear_basic="true"
                 datatype="string" default="$LAST"
                 description="Verified as legal female parent name in SAGE."
-                entry="manual" last="1xLwt_attp40_4stop1"
+                entry="manual" last="3xDSCPLwt_attp40_3stop1"
                 range_advanced="$FLYPARENT" range_basic="$FLYPARENT"
                 required="true" units=""/>
             <cross_barcode appear_advanced="true" appear_basic="true"
@@ -124,7 +124,7 @@
             <cross_date appear_advanced="true" appear_basic="true"
                 datatype="datetime" default="$LAST"
                 description="Date cross was made to generate this set of flies."
-                entry="manual" last="20190424T000000"
+                entry="manual" last="20220729T000000"
                 range_advanced="[now-22,now-14], days"
                 range_basic="[now-22,now-14], days" required="true" units=""/>
             <flip_used appear_advanced="true" appear_basic="true"
@@ -143,7 +143,7 @@
                     default="$LAST"
                     description="Name of an XLS file that has values for rearing parameters (see bottom of page for protocol fields). Whenever a rearing protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
                     entry="acquire"
-                    last="protocolVer3.xlsx"
+                    last="C:\Users\labadmin\Documents\MATLAB\flyBubbleRGB\ledProtocols\protocolRGBTemplate.xlsx"
                     range_advanced="" range_basic="" required="true" units=""/>
                 <rearing_incubator appear_advanced="true"
                     appear_basic="true" datatype="integer"
@@ -158,56 +158,63 @@
                     default="$LAST"
                     description="Name of an XLS file that has values for pre-assay handling parameters (see bottom of page for protocol fields) whenever a handling protocol variable is changed, user will need to create new rearing protocol file and give it a new name ."
                     entry="acquire"
-                    last="protocolVer3.xlsx"
+                    last="C:\Users\labadmin\Documents\MATLAB\flyBubbleRGB\ledProtocols\protocolRGBTemplate.xlsx"
                     range_advanced="" range_basic="" required="true" units=""/>
                 <handler_cross appear_advanced="true"
                     appear_basic="true" datatype="string"
                     default="$LAST"
                     description="Name of the person who crossed the flies."
-                    entry="manual" last="Katie" range_advanced="$LDAP"
-                    range_basic="$LDAP" required="true" units=""/>
+                    entry="manual" last="schretterc"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
                 <handler_sorting appear_advanced="true"
                     appear_basic="true" datatype="string"
                     default="$LAST"
                     description="Name of the person who sorted the flies."
-                    entry="manual" last="Katie" range_advanced="$LDAP"
-                    range_basic="$LDAP" required="true" units=""/>
+                    entry="manual" last="schretterc"
+                    range_advanced="$LDAP" range_basic="$LDAP"
+                    required="true" units=""/>
                 <seconds_fliesloaded appear_advanced="true"
                     appear_basic="true" datatype="integer" default=""
                     description="calculated as difference in seconds between load button push and movie start."
-                    entry="acquire" last="6" range_advanced=""
-                    range_basic="" required="true" units=""/>
+                    entry="acquire" last="4" range_advanced=""
+                    range_basic="" required="true" units="seconds"/>
                 <datetime_sorted appear_advanced="true"
                     appear_basic="true" datatype="datetime"
                     default="$LAST"
                     description="Date and time at which the experiment was started."
-                    entry="manual" last="20190426T000000"
+                    entry="manual" last="20220729T000000"
                     range_advanced="[now-22,now-14], days"
                     range_basic="[now-22,now-14], days" required="true" units=""/>
                 <num_flies_dead appear_advanced="true"
                     appear_basic="true" datatype="integer"
                     default="$LAST"
-                    description="Number of dead flies loaded into the bowl."
+                    description="Number of dead flies loaded into the Bubble."
                     entry="manual" last="12" range_advanced="[0,25]"
                     range_basic="[0,25]" required="true" units="flies"/>
+                <seconds_dividerDelay appear_advanced="true"
+                    appear_basic="true" datatype="string" default=""
+                    description="Delay time in seconds between starting experiments and opening the devider, inf means the divider is closed during the experiment."
+                    entry="acquire" last="30" range_advanced=""
+                    range_basic="" required="true" units="seconds"/>                
             </handling>
         </flies>
     </session>
     <environment>
         <IR_intensity appear_advanced="true" appear_basic="true"
             datatype="integer" default="$LAST"
-            description="IR intensity" entry="manual" last="4"
+            description="IR intensity" entry="manual" last="70"
             range_advanced="[0,100]" range_basic="[0,100]"
             required="true" units=""/>
         <temperature appear_advanced="true, readonly"
             appear_basic="true, readonly" datatype="integer" default=""
             description="Temperature snapshot at the time the assay was started."
-            entry="acquire" last="24" range_advanced="" range_basic=""
+            entry="acquire" last="23" range_advanced="" range_basic=""
             required="true" units="degrees Celsius"/>
         <humidity appear_advanced="true, readonly"
             appear_basic="true, readonly" datatype="integer" default=""
             description="Humidity snapshot at the time the assay was started."
-            entry="acquire" last="34" range_advanced="" range_basic=""
+            entry="acquire" last="52" range_advanced="" range_basic=""
             required="true" units="percent"/>
     </environment>
     <notes_behavioral>

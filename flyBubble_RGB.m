@@ -68,6 +68,7 @@ handles.dividerPattern = '0000';
 %define the divider delay time array and delete inf elements since inf
 %means keep the divider closed during the experiment.
 handles.initialDividerEventArray = [dividerDelayT1 dividerDelayT2 dividerDelayT3 dividerDelayT4];
+handles.dividerDelayTime = [dividerDelayT1 dividerDelayT2 dividerDelayT3 dividerDelayT4];
 indexInf = find(handles.initialDividerEventArray ==inf);
 handles.initialDividerEventArrayIndex = find(handles.initialDividerEventArray~=inf);
 handles.initialDividerEventArray(indexInf) = [];
@@ -661,7 +662,7 @@ if button_state == get(hObject,'Max')
         'Name', 'Metadata Input GUI', ...
         'NumberTitle', 'off', ...
         'Toolbar', 'none', ...
-        'Position', [1680 700 800 670],...
+        'Position', [1680 500 800 900],...
         'Units', 'pixels'...
         );
     
@@ -672,11 +673,15 @@ if button_state == get(hObject,'Max')
     tab(2) = uitab(tabgp,'Title','flyBubble2');
     tab(3) = uitab(tabgp,'Title','flyBubble3');
     tab(4) = uitab(tabgp,'Title','flyBubble4');
-    
-    for i = 1:4
+
+    for i = 1:4        
+        handles.defaultsTree(i).setValueByUniquePath({'experiment','exp_datetime'},datestr(handles.expStartTime,30));
+        handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_fliesloaded'}, num2str(round(etime(datevec(handles.expStartTime),datevec(handles.loadFlyTime(i))))));
+        handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_dividerDelay'}, num2str(handles.dividerDelayTime(i)));
         % Create JIDE PropertyGrid and display defaults data in figure
         pgrid = PropertyGrid(tab(i),'Position', [0 0 1 1]);
-        pgrid.setDefaultsTree(defaultsTree(i), 'advanced');
+        pgrid.setDefaultsTree(defaultsTree(i), 'advanced');        
+        drawnow;
     end
     
     if ~isempty(handles.ledProtocol)
@@ -693,12 +698,6 @@ if button_state == get(hObject,'Max')
     handles.expTimeFile = expTimeFile;
     handles.expTimeFileID = fopen(expTimeFile, 'w+');
     
-    for i = 1:4
-        handles.defaultsTree(i).setValueByUniquePath({'experiment','exp_datetime'},datestr(handles.expStartTime,30));
-        handles.defaultsTree(i).setValueByUniquePath({'experiment','session','flies','handling' 'seconds_fliesloaded'}, num2str(round(etime(datevec(handles.expStartTime),datevec(handles.loadFlyTime(i))))));
-        drawnow;
-
-    end
 
     for i = 1:4
         enclosureNum = handles.defaultsTree(i).getValueByUniquePath({'experiment','session','apparatus','rig'});
@@ -916,18 +915,17 @@ for i = 1:1
 end
 
 %open all dividers after abort of end of experiments
+set(handles.divider1,'Value',1);
+set(handles.divider1,'String', 'Opened');
+set(handles.divider2,'Value',1);
+set(handles.divider2,'String', 'Opened');
+set(handles.divider3,'Value',1);
+set(handles.divider3,'String', 'Opened');
+set(handles.divider4,'Value',1);
+set(handles.divider4,'String', 'Opened');
 handles.dividerPattern = '1111';
 handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
 handles.hComm.LEDCtrl.turnOnDivider();
-%reset all dividers to open state in the GUI
-set(handles.divider1,'Value',1);
-divider1_Callback(handles.divider1, 0, handles);
-set(handles.divider2,'Value',1);
-divider2_Callback(handles.divider2, 0, handles);
-set(handles.divider3,'Value',1);
-divider3_Callback(handles.divider3, 0, handles);
-set(handles.divider4,'Value',1);
-divider4_Callback(handles.divider4, 0, handles);
 
 %enable those inputs
 set(handles.IrInt, 'enable', 'on');
@@ -1335,12 +1333,12 @@ function divider1_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of divider1
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(hObject,'String', 'Close');
+    set(hObject,'String', 'Opened');
     handles.dividerPattern(1) = '1';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 else
-    set(hObject,'String', 'Open');
+    set(hObject,'String', 'Closed');
     handles.dividerPattern(1) = '0';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
@@ -1358,12 +1356,12 @@ function divider2_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of divider2
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(hObject,'String', 'Close');
+    set(hObject,'String', 'Opened');
     handles.dividerPattern(2) = '1';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 else
-    set(hObject,'String', 'Open');
+    set(hObject,'String', 'Closed');
     handles.dividerPattern(2) = '0';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
@@ -1381,12 +1379,12 @@ function divider3_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of divider3
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(hObject,'String', 'Close');
+    set(hObject,'String', 'Opened');
     handles.dividerPattern(3) = '1';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 else
-    set(hObject,'String', 'Open');
+    set(hObject,'String', 'Closed');
     handles.dividerPattern(3) = '0';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
@@ -1403,18 +1401,17 @@ function divider4_Callback(hObject, eventdata, handles)
 % Hint: get(hObject,'Value') returns toggle state of divider4
 button_state = get(hObject,'Value');
 if button_state == get(hObject,'Max')
-    set(hObject,'String', 'Close');
+    set(hObject,'String', 'Opened');
     handles.dividerPattern(4) = '1';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 else
-    set(hObject,'String', 'Open');
+    set(hObject,'String', 'Closed');
     handles.dividerPattern(4) = '0';
     handles.hComm.LEDCtrl.setDividerPattern(handles.dividerPattern);
     handles.hComm.LEDCtrl.turnOnDivider();
 end
 guidata(hObject, handles);
 end
-
 
 
