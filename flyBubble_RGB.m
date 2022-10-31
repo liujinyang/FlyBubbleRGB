@@ -721,10 +721,10 @@ if button_state == get(hObject,'Max')
         % save the protocol file
         protocolExcel = [handles.(['expDataSubdir',num2str(i)]),'\protocol.xlsx'];
         copyfile(get(handles.led_protocol_text,'String'), protocolExcel);
-%         % save led protocol as a mat file
-%         protocolMat = [handles.(['expDataSubdir',num2str(i)]),'\protocol.mat'];
-%         protocol = handles.protocol;
-%         save(protocolMat, 'protocol');
+        % save led protocol as a mat file
+        protocolMat = [handles.(['expDataSubdir',num2str(i)]),'\protocol.mat'];
+        protocol = handles.protocol;
+        save(protocolMat, 'protocol');
 
         %save the user setting file
         %     userSettingFile = [handles.expDataSubdir,  defaultPrefix,'userSetting.txt'];
@@ -1314,7 +1314,7 @@ for i = 1:4
         % default option is to use the last value used.
         handles.defaultsTree(i).write(handles.defaultMetaXmlFile{i});
         if isfield(handles, ['expDataSubdir',num2str(i)])
-            metaDataFile = [handles.(['expDataSubdir',num2str(i)]),'\metaData',num2str(i),'.xml'];
+            metaDataFile = [handles.(['expDataSubdir',num2str(i)]),'\metaData.xml'];
             metaData.write(metaDataFile);
         end
 end
