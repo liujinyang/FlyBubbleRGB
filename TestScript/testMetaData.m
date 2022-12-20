@@ -1,7 +1,7 @@
     %% input meta data information
     %defaultsFile = "flyBowlMetaTree.xml";
-    %defaultsFile = "flybowl_branson_defaults.xml";
-    defaultsFile1 = "flybowl_Katie_defaults1.xml";
+    defaultsFile = "flybowl_experimetnal_varaiables_defaults.xml";
+    %defaultsFile1 = "flybowl_Katie_defaults1.xml";
 %     defaultsFile2 = "flybowl_Katie_defaults2.xml";
 %     defaultsFile3 = "flybowl_Katie_defaults3.xml";
 %     defaultsFile4 = "flybowl_Katie_defaults4.xml";

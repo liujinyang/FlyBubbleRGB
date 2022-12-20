@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<experiment assay="FlyBowl" data_capture_version=""
+    exp_datetime="20221031T155118" experimenter="schretterc"
+    led_protocol="" protocol="" screen_type="primary">
+    <session>
+        <apparatus
+            apparatus_id="Rig1_Plate21_Bowl1_Camera_ComputerLIUJIN-WW1_HardDriveHD1"
+            bowl="1" camera="" computer="LIUJIN-WW1" harddrive="HD1"
+            rig="1" room="3E.282" top_plate="21"/>
+        <flies cross_barcode="-1" cross_date="20221013T000000"
+            effector="UAS_dTrpA1_2_0002"
+            female_parent="1xLwt_attp40_4stop1" flip_used="1" gender="b"
+            line="duplicate_1xLwt_attp40_4stop1" male_parent="duplicate" num_flies="1">
+            <rearing rearing_incubator="1" rearing_protocol=""/>
+            <handling datetime_sorted="" handler_cross="schretterc"
+                handler_sorting="schretterc" handling_protocol=""
+                num_flies_dead="12" seconds_fliesloaded=""/>
+        </flies>
+    </session>
+    <environment IR_intensity="20" humidity="" temperature=""/>
+    <notes_behavioral/>
+    <notes_technical/>
+    <flag_redo>0</flag_redo>
+    <flag_aborted>1</flag_aborted>
+</experiment>

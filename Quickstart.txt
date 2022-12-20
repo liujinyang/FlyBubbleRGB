@@ -1,0 +1,5 @@
+In order to run the camera control software BIAS.
+Step 1: Download the camera driver and SDK spinnaker 2.6.0.157. You can download it from the following link:
+https://flir.app.boxcn.net/v/SpinnakerSDK/file/941083342410
+
+Step 2: Run test_gui.exe in the folder ...\bias_spinnaker.
